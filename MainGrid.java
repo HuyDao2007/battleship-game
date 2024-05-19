@@ -1,4 +1,3 @@
-    
 /**
  * Write a description of class Battleship here.
  *
