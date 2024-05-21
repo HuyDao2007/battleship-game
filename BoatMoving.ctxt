@@ -2,8 +2,8 @@
 comment0.target=BoatMoving
 comment1.params=boatY\ boatX\ boatL\ r
 comment1.target=void\ MainGrid(int,\ int,\ int,\ int)
-comment2.params=
-comment2.target=void\ Input()
+comment2.params=i
+comment2.target=void\ Input(int)
 comment3.params=args
 comment3.target=void\ main(java.lang.String[])
 numComments=4
