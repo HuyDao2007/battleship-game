@@ -28,7 +28,7 @@ public class BoatMoving
                 if(b < boatL && b > boatX-1 && r == 0){
                     mainGrid[boatY][b] = "B";
                 }
-                if(a < boatL && r == 1){
+                if(a < boatL && a > boatY-1 && r == 1){
                     mainGrid[a][boatX] = "B";
                 }
                 System.out.print(mainGrid[a][b] + " ");
@@ -36,7 +36,7 @@ public class BoatMoving
                 System.out.println();
        }  
     }
-    public static void main(String[] args)
+    public static void Input()
     {
         Scanner kb = new Scanner(System.in);
         int boatY = 0; int boatX = 0; int boatL = 4; int r=0;
@@ -44,6 +44,7 @@ public class BoatMoving
         MainGrid(boatY, boatX, boatL, r);
         while(running){
             String input = kb.nextLine(); 
+
             if (input.equals("r"))
             {
                 r++;
@@ -59,16 +60,21 @@ public class BoatMoving
                boatY++;
             }
             else if(input.equals("d")){
-               boatX++; boatL++;
+               boatX++; 
             }
             else if(input.equals("a")){
-                boatX--; boatL--;
+                boatX--; 
             }
             else{
                 running = false;
             }
             System.out.println('\u000c');
             MainGrid(boatY, boatX, boatL, r);
-        }
+            }
     }
+    public static void main(String[] args)
+    {
+        Input();
+    }   
 }
+
