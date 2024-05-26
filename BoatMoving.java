@@ -36,64 +36,47 @@ public class BoatMoving
                 System.out.println();
        }  
     }
-    public static void Input(int i)
+    public static void main(String[] args)
     {
         Scanner kb = new Scanner(System.in);
         int boatY = 0; int boatX = 0; int boatL = 4; int r = 0;
         boolean running = true; 
+        MainGrid(boatY, boatX, boatL, r);
         while(running){
-            if (i==1){
+            String input = kb.nextLine(); 
+            if (input.equals("r")){
+                r=0;
+            }   
+            else if(input.equals("t")) {
                 r=1;
-                String input = kb.nextLine(); 
-                if(input.equals("w")){
+            }
+            if(input.equals("w") && r==1){
                   boatY--; boatL--;
                 }
-                else if(input.equals("s")){
+            else if(input.equals("s") && r==1){
                    boatY++; boatL++;
                 }
-                else if(input.equals("d")){
+            else if(input.equals("d") && r==1){
                    boatX++; 
                 }
-                else if(input.equals("a")){
+            else if(input.equals("a") && r==1){
                     boatX--; 
                 }
-            }
-            if(i==0)
-            {
-                r=0;
-                String input = kb.nextLine(); 
-                if(input.equals("w")){
+            if(input.equals("w") && r==0){
                   boatY--;
                 }
-                else if(input.equals("s")){
+            else if(input.equals("s") && r==0){
                    boatY++; 
                 }
-                else if(input.equals("d")){
+            else if(input.equals("d") && r==0){
                    boatX++; boatL++;
                 }
-                else if(input.equals("a")){
+            else if(input.equals("a") && r==0){
                     boatX--; boatL--;
                 }
-            }
-            System.out.println('\u000c');
+                System.out.println('\u000c');
             MainGrid(boatY, boatX, boatL, r);
             }
     }
-    public static void main(String[] args)
-    {
-        Scanner kb = new Scanner(System.in);
-        boolean running = true;
-        int boatY = 0; int boatX = 0; int boatL = 4; int r = 0; int i = 0;
-        MainGrid(boatY, boatX, boatL, r);
-        String input = kb.nextLine();
-        if(input.equals("r")){
-                i=0;
-        }
-        else if(input.equals("t")){
-                i=1;
-            }
-        Input(i);
-        }   
-    }
-
+}
 
