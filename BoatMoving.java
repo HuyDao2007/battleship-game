@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class BoatMoving
 {
-    static void MainGrid(int boatY, int boatX, int boatL, int r)
+    static void MainGrid(int boatY1, int boatX1, int boatL1, int boatY2, int boatX2, int boatL2, int r)
     {       
        String[][] mainGrid = new String[10][10];
        String[] sideCoord = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "K"};
@@ -25,11 +25,11 @@ public class BoatMoving
                 for(int b = 0; b < 10; b++)
                 {
                 mainGrid[a][b] = ".";
-                if(b < boatL && b > boatX-1 && r == 0){
-                    mainGrid[boatY][b] = "B";
+                if(b < boatL1 && b > boatX1-1 && r == 0){
+                    mainGrid[boatY1][b] = "B";
                 }
-                if(a < boatL && a > boatY-1 && r == 1){
-                    mainGrid[a][boatX] = "B";
+                if(a < boatL2 && a > boatY2-1 && r == 1){
+                    mainGrid[a][boatX2] = "B";
                 }
                 System.out.print(mainGrid[a][b] + " ");
                 }   
@@ -39,9 +39,10 @@ public class BoatMoving
     public static void main(String[] args)
     {
         Scanner kb = new Scanner(System.in);
-        int boatY = 0; int boatX = 0; int boatL = 4; int r = 0;
+        int boatY1 = 0; int boatX1 = 0; int boatL1 = 4; int r = 0;
+        int boatY2 = 0; int boatX2 = 0; int boatL2 = 4;
         boolean running = true; 
-        MainGrid(boatY, boatX, boatL, r);
+        MainGrid(0, 0, 4, 0, 0, 4, r);
         while(running){
             String input = kb.nextLine(); 
             if (input.equals("r")){
@@ -50,33 +51,33 @@ public class BoatMoving
             else if(input.equals("t")) {
                 r=1;
             }
+            
             if(input.equals("w") && r==1){
-                  boatY--; boatL--;
+                  boatY2--; boatL2--;
                 }
             else if(input.equals("s") && r==1){
-                   boatY++; boatL++;
+                   boatY2++; boatL2++;
                 }
             else if(input.equals("d") && r==1){
-                   boatX++; 
+                   boatX2++; 
                 }
             else if(input.equals("a") && r==1){
-                    boatX--; 
+                    boatX2--; 
                 }
             if(input.equals("w") && r==0){
-                  boatY--;
+                  boatY1--;
                 }
             else if(input.equals("s") && r==0){
-                   boatY++; 
+                   boatY1++; 
                 }
             else if(input.equals("d") && r==0){
-                   boatX++; boatL++;
+                   boatX1++; boatL1++;
                 }
             else if(input.equals("a") && r==0){
-                    boatX--; boatL--;
+                    boatX1--; boatL1--;
                 }
                 System.out.println('\u000c');
-            MainGrid(boatY, boatX, boatL, r);
-            }
+            MainGrid(boatY1, boatX1, boatL1, boatY2, boatX2, boatL2, r);
+        }
     }
 }
-
