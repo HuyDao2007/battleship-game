@@ -26,10 +26,10 @@ public class BoatMoving
                 {
                 mainGrid[a][b] = ".";
                 if(b < boatL1 && b > boatX1-1 && r == 0){
-                    mainGrid[boatY1][b] = "B";
+                    mainGrid[boatY1][b] = "🚢?";
                 }
                 if(a < boatL2 && a > boatY2-1 && r == 1){
-                    mainGrid[a][boatX2] = "B";
+                    mainGrid[a][boatX2] = "🚢";
                 }
                 System.out.print(mainGrid[a][b] + " ");
                 }   
