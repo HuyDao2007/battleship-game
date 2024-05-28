@@ -55,7 +55,7 @@ public class MainGame
             System.out.println();
        }
     }
-    static void Input(int boatY, int boatX, int boatL)
+    static void Moving(int boatY, int boatX, int boatL)
     {
         System.out.println('\u000c');
         
@@ -82,10 +82,10 @@ public class MainGame
             else{
                 running = false;
             }
-            if(input.equals("p")){
-                MainGrid(boatY, boatX, boatL);
-                break;
-            }
+            //if(input.equals("p")){
+                //MainGrid(boatY, boatX, boatL);
+               // break;
+            //}
             System.out.println('\u000c');
             MainGrid(boatY, boatX, boatL);
             
@@ -96,23 +96,28 @@ public class MainGame
     {
         System.out.println('\u000c');
         Scanner kb = new Scanner(System.in);
-        
+        String x1;
         boolean shooting = true;
+        String[] coord = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "k"};
+        int a = 0;
         
         System.out.println("Welcome to Battleship!");
         MainGrid(0, 0, 0);
         
         System.out.println("Please select your ship. Press number from 1 - 5 to spawn ships");
         System.out.println("Index: 1 = Destroyer, 2 = Submarine, 3 = Cruiser, 4 = Battleship, 5 = Carrier"); 
-        
-        
+        int ans = kb.nextInt();
+        if(ans == 1){
+            Moving(0,0,5);
+        }
         
         while(shooting){
-            String[] coord = {"a", "b", "c", "d", "e", "f", "g", "h", "i", "k"};
-            int a = 1; 
-            String y1 = kb.nextLine();
+            System.out.println("Please enter your x coord");
             int y = kb.nextInt()-1;
-            while(!(y1.equals(coord[a]))){
+            System.out.println("Please enter your y coord");
+            kb.nextLine();
+            x1 = kb.nextLine();
+            while(!(x1.equals(coord[a]))){
                 a++;
             }
             int x = a;
